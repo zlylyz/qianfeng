@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>节点</title>
+</head>
+<body>
+	<div id="box">
+		<div id="sub"></div>
+	</div>
+</body>
+<script>
+//createElement与createTextNode新增的标签和文本最后都是放在appendChild的括号里
+	var box = document.getElementById("box");
+	var sub = document.getElementById("sub");
+	var cute = document.createElement("div");
+	cute.innerHTML = "我是cute";
+	box.appendChild(cute);
+	var text = document.createTextNode("我是新增在sub中的文本");
+	sub.appendChild(text);
+	console.log(text);
+</script>
+</html>

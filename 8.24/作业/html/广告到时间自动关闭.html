@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>广告到时间自动关闭</title>
+	<style>
+		#box{
+			width:300px;
+			height:200px;
+			background:green;
+			margin:100px auto;
+			color:white;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<span>我是一条广告，还有</span>
+		<span id="currNumber">10</span>
+		<span>秒自动关闭！</span>
+	</div>
+</body>
+<script>
+	var currNumber = document.getElementById("currNumber");
+	var box = document.getElementById("box");
+	var num = 10;
+	var time = null;
+	time = setInterval(function(){
+		console.log(11);
+		num--;
+		if(num == 0){
+			box.style.display = "none";
+			clearInterval(time);
+			time = null;
+		}
+		currNumber.innerHTML = num;
+	},1000);
+
+
+</script>
+</html>

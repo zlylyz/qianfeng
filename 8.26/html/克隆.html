@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>克隆</title>
+</head>
+<body>
+	<div id="box">
+		<div id="cute">我是cute</div>
+	</div>
+</body>
+<script>
+	var box = document.getElementById("box");
+	var cute = document.getElementById("cute");
+	//括号里为true的时候就一摸一样的复制下来，为false的时候去掉标签中间的文本节点
+	var newCute = cute.cloneNode(true);
+	box.appendChild(newCute);
+</script>
+</html>

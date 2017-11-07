@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组(给定一个字符串，把其中的数字找出，并放到一个数组里面存放起来，非数字的存在另外一个数组里，把数组打印出来</title>
+</head>
+<body>
+	
+</body>
+<script>
+//charCodeAt是ASCII码，还可以用str.charAt(i)来比较哪个字符串的ASCII码的大小
+	function separate(str){
+		var arr_string = [];
+		var arr_number = [];
+		for(var i=0;i<str.length;i++){
+			if((str[i].charCodeAt()>=65 && str[i].charCodeAt()<=90) || (str[i].charCodeAt()>=91 && str[i].charCodeAt()<=122)){
+				arr_string.push(str[i]);
+			}else{
+				arr_number.push(str[i]);
+			}
+		}
+		console.log(arr_string,arr_number);
+	}
+	separate("3r5t5yh5h5y9");
+</script>
+</html>

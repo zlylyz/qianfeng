@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正弦运动</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		#box{
+			width:800px;
+			height:500px;
+			border:2px solid #ccc;
+			position:relative;
+		}
+		#cute{
+			width:20px;
+			height:20px;
+			background:green;
+			border-radius:10px;
+			position:absolute;
+			left:0;
+			top:240px;
+		}
+		#anniu{
+			width:100%;
+			height:30px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="cute">
+			
+		</div>
+	</div>
+	<div id="anniu"> 
+		<input type="button" value="开始" id="start"/>
+		<input type="button" value="暂停" id="pause"/>
+	</div>
+</body>
+<script>
+	var box = document.getElementById("box");
+	var cute = document.getElementById("cute");
+	var start = document.getElementById("start");
+	var pause = document.getElementById("pause");
+	var time = null;
+	var optX = 0;
+	var optY = 0;
+	function move(){
+		optX++;
+		optY = 100*Math.sin(optX/180*Math.PI)+250;
+		//乘以100是为了增大幅度
+		cute.style.left = optX + "px";
+		cute.style.top = optY + "px";
+	}
+	start.onclick = function(){
+		if(time){
+			clearInterval(time);
+		}
+		time = setInterval(move,10);
+	}
+	pause.onclick = function(){
+		clearInterval(time);
+		time = null;
+	}
+</script>
+</html>

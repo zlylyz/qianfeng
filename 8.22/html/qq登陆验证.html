@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>qq登陆验证</title>
+</head>
+<body>
+<div>
+	<label for="username"></label>
+	<input type="text" placeholder="请输入账号" id="username"/>
+</div>
+<div>
+	<label for="password"></label>
+	<input type="text" placeholder="请输入密码" id="password"/>
+</div>
+<div>
+	<input type="button" value="登陆" id="btn"/>
+</div>
+	
+
+</body>
+<script>
+	var username = document.getElementById("username");
+	var btn = document.getElementById("btn");
+	btn.onclick = function(){
+		var user_value = username.value;
+		var len = user_value.length;
+		if(user_value[0] == 0){
+			alert("用户名第一位不得为0");
+		}
+		for(var i=0;i<len;i++){
+			if(user_value[i].charCodeAt() == 32){
+				alert("用户名中不得出现空格");
+			}
+			if(len<6 || len>12){
+				alert("用户名的长度不得少于6位，不得大于12位");
+			}
+			if((user_value.charAt(i)>="a" && user_value.charAt(i)<="z") || (user_value.charAt(i)>="A" && user_value.charAt(i)<="Z")){
+				alert("用户名中不得出现字母");
+			}
+		}
+
+	}
+</script>
+</html>

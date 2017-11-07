@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取验证码</title>
+	<style>
+		#box{
+			overflow:hidden;
+		}
+		#box span{
+			float:left;
+			width:50px;
+			height:30px;
+			text-align: center;
+			line-height: 30px;
+		}
+		#box span:nth-child(2){
+			font-size:12px;
+			color:white;
+			width:80px;
+			height:30px;
+			background:green;
+			cursor:pointer;
+			border-radius:3px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<span></span>
+		<span>获取验证码</span>
+	</div>
+</body>
+<script>
+	var spans = document.getElementById("box").getElementsByTagName("span");
+	var con = spans[0];
+	var btn = spans[1];
+	var str = "";
+	var arr=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",0,1,2,3,4,5,6,7,8,9];
+	
+	function sheng(){
+		while(str.length<4){
+		var arrSingleNum = parseInt(Math.random()*36);
+		str += arr[arrSingleNum];
+	}
+		con.innerHTML = str;
+		str = "";
+	}
+	sheng();
+	btn.onclick = function(){
+		sheng();
+	}
+</script>
+</html>

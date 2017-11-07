@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取非行间样式</title>
+	<style>
+		#box{
+			width:200px;
+			height:200px;
+			background:green;
+		}
+	</style>
+</head>
+<body>
+	<div id="box" style="border:3px solid red;"></div>
+</body>
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script>
+//box.style只能获取行间样式，不能获取非行间样式
+//box.currentStyle（IE）与getComputedStyle行间样式与非行间样式都能够获取到
+// 	var box = document.getElementById("box");
+// 	// console.log(box.style.width);
+// 	function getStyle(obj,sttr){
+// 		if(obj.currentStyle){
+// 			return obj.currentStyle[sttr];
+// 		}else{
+// 			return getComputedStyle(obj,false)[sttr];
+// 		}
+// 	}
+// console.log(getStyle(box,"width"));
+
+
+//验证jquery中是否行间样式和非行间样式都能够获取到（可以）
+console.log($("#box").height());//获取到的是一个数量，如果用css的话获取到的是字符串
+console.log($("#box").css("border"));
+</script>
+</html>

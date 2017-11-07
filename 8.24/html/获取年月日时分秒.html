@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取年月日时分秒</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		#box{
+			width:460px;
+			height:50px;
+			border:1px solid green;
+			margin:100px auto;
+			overflow:hidden;
+		}
+		#box span{
+			width:37px;
+			height:50px;
+			display:block;
+			float:left;
+			line-height: 50px;
+			text-align:center;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<span></span>
+		<span>年</span>
+		<span></span>
+		<span>月</span>
+		<span></span>
+		<span>日</span>
+		<span></span>
+		<span>时</span>
+		<span></span>
+		<span>分</span>
+		<span></span>
+		<span>秒</span>
+	</div>
+</body>
+<script>
+
+	var spans = document.getElementById("box").getElementsByTagName("span");
+	var time = null;
+	time = setInterval(currTime,1000);
+	function currTime(){
+		var currDate = new Date();
+		var year = currDate.getFullYear();
+		var month = currDate.getMonth()+1;
+		var day = currDate.getDate();
+		var hour = currDate.getHours();
+		var minutes = currDate.getMinutes();
+		var seconds = currDate.getSeconds();
+		spans[0].innerHTML = year;
+		spans[2].innerHTML = month;
+		spans[4].innerHTML = day;
+		spans[6].innerHTML = hour;
+		spans[8].innerHTML = minutes;
+		spans[10].innerHTML = seconds;
+	}
+	
+
+</script>
+</html>

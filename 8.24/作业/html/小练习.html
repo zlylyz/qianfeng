@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>小练习</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		.box{
+			width:400px;
+			height:300px;
+			border:1px solid #ccc;
+			margin:50px auto;
+		}
+	</style>
+</head>
+<body>
+<div class="box">
+	<div id="curr_time">
+		<span>系统当前时间：</span>
+		<span></span>
+		<span>-</span>
+		<span></span>
+		<span>-</span>
+		<span></span>
+		<span></span>
+		<span>:</span>
+		<span></span>
+		<span>:</span>
+		<span></span>
+	</div>
+	<div id="ji_time">
+		<span>当前页面已停留时间：</span>
+		<span>0</span>
+		<span>小时</span>
+		<span>0</span>
+		<span>分钟</span>
+		<span>0</span>
+		<span>秒</span>
+	</div>
+	<div id="shuru">
+		<span>请输入字符：</span>
+		<input type="text" id="shuru_text"/>
+		<input type="button" value="执行" id="zhixing"/>
+	</div>
+	<div id="shuchu">
+		<span>您输入的字符是：</span>
+		<span></span>
+		<span>,它的ASCII码为</span>
+		<span></span>
+		<span>。</span>
+	</div>
+</div>
+	
+</body>
+<script>
+    var shuru_text = document.getElementById("shuru_text");
+    var zhixing = document.getElementById("zhixing");
+	var spans = document.getElementById("curr_time").getElementsByTagName("span");
+	var jiSpans = document.getElementById("ji_time").getElementsByTagName("span");
+	var shuchu = document.getElementById("shuchu").getElementsByTagName("span");
+	var seNum = 0;
+	var minNum = 0;
+	var hourNum = 0;
+	setInterval(getCurrTime,1000);
+	function getCurrTime(){
+		var currDate = new Date();
+		spans[1].innerHTML = currDate.getFullYear();
+		spans[3].innerHTML = currDate.getMonth()+1;
+		spans[5].innerHTML = currDate.getDate();
+		spans[6].innerHTML = currDate.getHours();
+		spans[8].innerHTML = currDate.getMinutes();
+		spans[10].innerHTML = currDate.getSeconds();
+	}
+	setInterval(jishi,1000);
+	function jishi(){
+		seNum++;
+		if(seNum == 60){
+			seNum = 0;
+			minNum++;
+			if(minNum == 60){
+				minNum = 0;
+				hourNum++;
+			}
+		}
+		jiSpans[1].innerHTML = hourNum;
+		jiSpans[3].innerHTML = minNum;
+		jiSpans[5].innerHTML = seNum;
+
+	}
+	zhixing.onclick = function(){
+		var zimu = shuru_text.value;
+		shuchu[1].innerHTML = zimu;
+		shuchu[3].innerHTML = zimu.charCodeAt();
+	}
+</script>
+</html>

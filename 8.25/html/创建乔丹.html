@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>创建乔丹</title>
+	<style>
+		#con{
+			position:relative;
+		}
+		#con div{
+			position:absolute;
+			left:0;
+			top:0;
+		}
+	</style>
+</head>
+<body>
+	<div id="con"></div>
+	<input type="button" value="生成" id="btn"/>
+</body>
+<script>
+	var btn = document.getElementById("btn");
+	var con = document.getElementById("con");
+	function getSingle(wid,hei,bac,lef,to){
+	   var oDiv = document.createElement("div");
+	   oDiv.style.width = wid + "px";
+	   oDiv.style.height = hei + "px";
+	   oDiv.style.backgroundImage = bac;
+	   oDiv.style.backgroundRepeat = "no-repeat";
+	   oDiv.style.backgroundSize = "100% 100%";
+	   oDiv.style.top = to + "px";
+	   oDiv.style.left = lef + "px";
+	   con.appendChild(oDiv);
+	}
+
+	function randomSingle(){
+		var widt = parseInt(Math.random()*300);
+		var hei = parseInt(Math.random()*300);
+		var to = parseInt(Math.random()*500);
+		var le = parseInt(Math.random()*1000);
+		var arr = ["未标题-35.jpg","未标题-36.jpg","未标题-38.jpg","未标题-39.jpg"];
+		var randomNum = parseInt(Math.random()*arr.length);
+		var randomImage = "url('../img/"+arr[randomNum]+"')";
+		getSingle(widt,hei,randomImage,le,to);
+	}
+	btn.onclick = function(){
+		randomSingle();
+	}
+</script>
+</html>

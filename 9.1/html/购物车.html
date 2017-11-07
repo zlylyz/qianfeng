@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>购物车</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		html,body{
+			width:100%;
+			height:100%;
+			position:relative;
+		}
+		#box{
+			width:500px;
+			height:500px;
+			position:absolute;
+			left:-400px;
+			top:0;
+			overflow:hidden;
+		}
+		#car{
+			width:400px;
+			height:500px;
+			background:green;
+			float:left;
+		}
+		#btn{
+			width:100px;
+			height:100px;
+			background:yellow;
+			float:left;
+			text-align:center;
+			line-height:100px;
+		}
+	</style>
+	<style>
+
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="car"></div>
+		<div id="btn">购物车</div>
+	</div>
+</body>
+<script>
+	var box = document.getElementById("box");
+	var car = document.getElementById("car");
+	var btn = document.getElementById("btn");
+	var optX = -400;
+	var k = true;
+	var time = null;
+	btn.onclick = function(){
+		time = setInterval(move,10);
+	}
+	function move(){
+		if(k){
+			optX++;
+			if(optX>0){
+				optX = 0;
+				clearInterval(time);
+				time = null;
+				k = false;
+			}
+		}else{
+			optX--;
+			if(optX<-400){
+				optX = -400;
+				clearInterval(time);
+				time = null;
+				k = true;
+			}
+		}
+		box.style.left = optX + "px";		
+	}
+</script>
+</html>

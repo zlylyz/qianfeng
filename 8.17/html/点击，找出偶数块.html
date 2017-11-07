@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>找出偶数块</title>
+	<style>
+		div{
+			width:50px;
+			height:50px;
+			display:inline-block;
+			background:yellow;
+			margin-right:10px;
+		}
+		div:last-child{
+			margin-right:0;
+		}
+	</style>
+</head>
+<body>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+	<div>6</div>
+	<div>7</div>
+	<div>8</div>
+	<div>9</div>
+	<div>10</div>
+</body>
+<script>
+	var divs = document.getElementsByTagName("div");
+	var len = divs.length;
+	for(var i=0;i<len;i++){
+		//对i进行赋值时，在点击事件外边是0-9，在点击事件里边是9
+		divs[i].index=i;
+		divs[i].onclick = function(){
+			if(this.index%2==0){
+				console.log("我是奇数块");
+			}else{
+				console.log("我是偶数块");
+			}
+
+		}
+	}
+	
+</script>
+</html>
