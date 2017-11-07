@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>位置变化</title>
+	<style>
+		*{margin:0;padding:0;}
+		body{position:relative;width:100%;height:100%;}
+		#box{width:50px;height:50px;background:yellow;position:absolute;left:0;top:0;}
+		#location{position:absolute;left:20px;bottom:20px;}
+		#location span{float:left;padding:10px 10px;display:block;background:green;margin-right:5px;}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<div id="location">
+		<span id="top">上</span>
+		<span id="bottom">下</span>
+		<span id="left">左</span>
+		<span id="right">右</span>
+	</div>
+</body>
+<script>
+	var box = document.getElementById("box");
+	var top = document.getElementById("top");
+	var bottom = document.getElementById("bottom");
+	var left = document.getElementById("left");
+	var right = document.getElementById("right");
+	var l = 0;
+	var t = 0;
+	top.onclick = function(){
+		t -= 1;
+		box.style.top = t + "px";
+	}
+	bottom.onclick = function(){
+		t += 1;
+		box.style.top = t + "px";
+	}
+	left.onclick = function(){
+		l -= 1;
+		box.style.left = l + "px";
+	}
+	right.onclick = function(){
+		l += 1;
+		box.style.left = l + "px";
+	}
+</script>
+</html>
